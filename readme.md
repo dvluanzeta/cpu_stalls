@@ -30,7 +30,7 @@ Following functions compute the sum of all elements in a square matrix. Both of 
 <table>
 
 <tr>
-<td> **ROW MAJOR** </td>
+<td><b>ROW MAJOR</b></td>
 <td>
 
 ```c++
@@ -49,7 +49,7 @@ double row_major_process(square* c) {
 </tr>
 
 <tr>
-<td> **COLUMN MAJOR** </td>
+<td><b>COLUMN MAJOR</b></td>
 <td>
 
 ```c++
