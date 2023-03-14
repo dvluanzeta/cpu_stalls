@@ -69,6 +69,7 @@ double column_major_process(square* c) {
 
 </table>
 </div>
+	
 Compiling the Visual C++ 2019 project [*TestMemAccess*](TestMemAccess) in release x64 mode generates file *x64/Release/TestMemAccess.exe*. This program measures and prints out the ratio between running time of function ```column_major_process``` and ```row_major_process```. Then, the script [*evaluate.py*](evaluate.py) calls the program to evaluate the dependence of ratio value on the size of the matrix.
 
 The testing environment is CPU AMD Ryzen 5 5600H (L1: 384KB, L2: 3MB, L3: 16MB) on Windows 11. The result is shown as following figure:
