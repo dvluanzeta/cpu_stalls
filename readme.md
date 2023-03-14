@@ -9,7 +9,7 @@ The cache memory is much smaller than RAM, so it cannot contain a large data seg
 
 This example shows the effect of memory access on program speed. A row major order square matrix is processed in different ways. The first way tries to handle data in a row in which cell values are placed next to each other in memory. The other way handles data by column which cell addresses are discontinuous.
 
-<p align="center">
+<div align="center">
 <table>
 <tr>
 <td>
@@ -22,18 +22,15 @@ This example shows the effect of memory access on program speed. A row major ord
 </td>
 </tr>
 </table>
-</p>
+</div>
 
 Following functions compute the sum of all elements in a square matrix. Both of them have the same complexity. The difference here is how they traverse the data. The function ```row_major_process``` considers row as a segment data to be scanned while the rest scans column by column. Because the input value is a square matrix, both row segment and column segment have the same length. To highlight the problem, functions access the segment's element randomly via a shuffered indexes list  ```c->index```.
 
+<div align="center">
 <table>
-<thead>
+
 <tr>
-<th> ROW MAJOR </th>
-<th> COLUMN MAJOR </th>
-</tr>
-</thead>
-<tr>
+<td> **ROW MAJOR** </td>
 <td>
 
 ```c++
@@ -49,6 +46,10 @@ double row_major_process(square* c) {
 ```
 
 </td>
+</tr>
+
+<tr>
+<td> **COLUMN MAJOR** </td>
 <td>
 
 ```c++
@@ -65,9 +66,10 @@ double column_major_process(square* c) {
 
 </td>
 </tr>
-</table>
 
-Compiling the project Visual C++ 2019 [*TestMemAccess*](TestMemAccess) in release x64 mode generates file [*x64/Release/TestMemAccess.exe*](x64/Release/TestMemAccess.exe). This program measures and prints out the ratio between running time of function ```column_major_process``` and ```row_major_process```. Then, the script [*evaluate.py*](evaluate.py) calls the program to evaluate the dependence of ratio value on the size of the matrix.
+</table>
+</div>
+Compiling the Visual C++ 2019 project [*TestMemAccess*](TestMemAccess) in release x64 mode generates file *x64/Release/TestMemAccess.exe*. This program measures and prints out the ratio between running time of function ```column_major_process``` and ```row_major_process```. Then, the script [*evaluate.py*](evaluate.py) calls the program to evaluate the dependence of ratio value on the size of the matrix.
 
 The testing environment is CPU AMD Ryzen 5 5600H (L1: 384KB, L2: 3MB, L3: 16MB) on Windows 11. The result is shown as following figure:
 
